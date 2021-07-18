@@ -1,6 +1,7 @@
 import { config } from 'dotenv';
-import { Client, Message } from 'discord.js';
-import { messageHandler } from "./handlers" 
+import { Client, GuildMember, Message } from 'discord.js';
+import { guildMemberAddHandler, messageHandler } from "./handlers" 
+import { memory } from 'console';
 
 config();
 
@@ -13,5 +14,6 @@ client.on("ready", () => {
 });
 
 client.on('message', messageHandler);
+client.on('guildMemberAdd', guildMemberAddHandler);
 
 client.login(process.env.BOT_TOKEN);
